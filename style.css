@@ -117,3 +117,20 @@ section .wave:after {
   -webkit-text-fill-color: transparent;
 }
 
+@media screen and (max-width: 480px) {
+    body{
+        height: 100vh;
+    }
+    img{
+        padding: 120px 0 50px 0;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #counter {
+        font-size: 0.8em;
+    }
+    #counter .title {
+        padding: 30px;
+    }
+  }
