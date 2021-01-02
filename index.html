@@ -1,69 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link rel = "icon" href="./image/logo.png" type = "image/x-icon"> 
-    <title>Yakında</title>
+<head>
+	<meta charset="UTF-8">
+	<title>Yakında</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Red+Rose&display=swap" rel="stylesheet">	
+	<link rel = "icon" href="image/logo.png" type = "image/x-icon"> 
 </head>
-
 <body>
-    <section id="logo">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <img src="image/my-logo.png" alt="Logo" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="info">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <p>Teknoloji Sanat Ekonomi Platformu</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="counter">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="countdown"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="social">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <ul>
-                        <li class="twitter"><a href="http://www.twiter.com" target="_blank"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a></li>
-                        <li class="facebook"><a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a></li>
-                        <li class="google"><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus-square fa-3x" aria-hidden="true"></i></a></li>
-                        <li class="instagram"><a href="https://instagram.com" target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<section>
+		<div class="wave"></div>
+		<div id="counter">
+			<div class="container">
+					<div class="row">
+							<div class="col-md-12">
+									<img src="image/my-logo.png" alt="Logo">
+									<p class="title">Teknoloji Sanat Ekonomi Platformu</p>
+									<div class="countdown"></div>
+							</div>
+					</div>
+			</div>
+	</section>
+</div>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/jquery.countdown.min.js"></script>
-    <script>
-        $(function() {
-            $('.countdown').countdown({
-                date: "January 15, 2021 15:00:00"
-            });
-        });
-    </script>
+	<script type="text/javascript" src="js/jquery.countdown.min.js"></script>
+	<script>
+			$(function() {
+					$('.countdown').countdown({
+							date: "January 15, 2021 15:00:00"
+					});
+			});
+	</script>
 </body>
 </html>
