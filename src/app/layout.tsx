@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Mitoz - Coming soon ",
+  title: "Mitoz - Coming soon",
   description:
     "Mitoz is a platform that allows you to share information about various topics such as technology, science, and more. We are currently in development and will be launching soon.",
 };
@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>

@@ -7,7 +7,7 @@ export const ThemeSwitcher = () => {
   const currentTheme = theme === "system" ? systemTheme : theme;
 
   return (
-    <div className="">
+    <div>
       <button
         className="text-slate-500 p-2 bg rounded-full border-slate-50	"
         onClick={() => {
@@ -16,21 +16,6 @@ export const ThemeSwitcher = () => {
       >
         {currentTheme === "light" ? "DARK" : "LIGHT"}
       </button>
-      {/* {currentTheme === "light" ? (
-            <MoonIcon
-                className="size-5 cursor-pointer text-slate-700"
-                onClick={() => {
-                    setTheme("dark")
-                }}
-            />
-      ) : (
-        <SunIcon
-            className="size-5 cursor-pointer text-yellow-400"
-            onClick={() => {
-                setTheme("light")
-            }}
-        />
-      )} */}
     </div>
   );
 };

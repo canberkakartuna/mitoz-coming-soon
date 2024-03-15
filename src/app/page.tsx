@@ -5,7 +5,20 @@ import React from "react";
 
 export default function Home() {
   const { description, copyrightText, title } = data;
-  const [state, setState] = React.useState({
+
+  const calculateTimeLeft = (endDate: number) => {
+    const now = new Date().getTime();
+    const distance = endDate - now;
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    return { days, hours, minutes, seconds };
+  };
+
+  const [timeLeft, setTimeLeft] = React.useState({
     days: 0,
     hours: 0,
     minutes: 0,
@@ -14,16 +27,7 @@ export default function Home() {
 
   React.useEffect(() => {
     const interval = setInterval(() => {
-      const endDate = new Date("2024-06-17T23:59:59").getTime();
-      const now = new Date().getTime();
-      const distance = endDate - now;
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      setState({ days, hours, minutes, seconds });
+      setTimeLeft(calculateTimeLeft(new Date("2024-06-17T23:59:59").getTime()));
     }, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -39,34 +43,43 @@ export default function Home() {
             </span>
             <span className="">⏳</span>
           </h2>
-          {state.days > 0 && (
-            <p>
-              <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-slate-100">
-                {state.days}
-              </span>
-              <span className="text-2xl sm:text-3xl lg:text-4xl font-thin text-slate-800 dark:text-slate-100">
-                d &nbsp;
-              </span>
-              <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-slate-100">
-                {state.hours}
-              </span>
-              <span className="text-2xl sm:text-3xl lg:text-4xl font-thin text-slate-800 dark:text-slate-100">
-                h &nbsp;
-              </span>
-              <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-slate-100">
-                {state.minutes}
-              </span>
-              <span className="text-2xl sm:text-3xl lg:text-4xl font-thin text-slate-800 dark:text-slate-100">
-                m &nbsp;
-              </span>
-              <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-slate-100">
-                {state.seconds}
-              </span>
-              <span className="text-2xl sm:text-3xl lg:text-4xl font-thin text-slate-800 dark:text-slate-100">
-                s
-              </span>
-            </p>
-          )}
+
+          <p
+            className={
+              timeLeft.days === 0 &&
+              timeLeft.hours === 0 &&
+              timeLeft.minutes === 0 &&
+              timeLeft.seconds === 0
+                ? "invisible"
+                : "visible"
+            }
+          >
+            <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-slate-100">
+              {timeLeft.days}
+            </span>
+            <span className="text-2xl sm:text-3xl lg:text-4xl font-thin text-slate-800 dark:text-slate-100">
+              d &nbsp;
+            </span>
+            <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-slate-100">
+              {timeLeft.hours}
+            </span>
+            <span className="text-2xl sm:text-3xl lg:text-4xl font-thin text-slate-800 dark:text-slate-100">
+              h &nbsp;
+            </span>
+            <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-slate-100">
+              {timeLeft.minutes}
+            </span>
+            <span className="text-2xl sm:text-3xl lg:text-4xl font-thin text-slate-800 dark:text-slate-100">
+              m &nbsp;
+            </span>
+            <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-slate-100">
+              {timeLeft.seconds}
+            </span>
+            <span className="text-2xl sm:text-3xl lg:text-4xl font-thin text-slate-800 dark:text-slate-100">
+              s
+            </span>
+          </p>
+
           <p
             className="text-2xl md:text-3xl px-6 max-w-3xl text-center m-5 text-slate-800 dark:text-slate-100 font-thin"
             dangerouslySetInnerHTML={{
