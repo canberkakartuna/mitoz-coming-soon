@@ -24,7 +24,7 @@ export default function RootLayout({
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <body className={`${inter.className} bg-gray-200	 dark:bg-[#0d1117] `}>
+      <body className={`${inter.className} bg-gray-200 dark:bg-[#0d1117]`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <main className="h-screen">{children}</main>
         </ThemeProvider>
