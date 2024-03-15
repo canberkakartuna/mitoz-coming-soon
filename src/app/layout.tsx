@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Home - Comming soon Template",
+  title: "Mitoz - Coming soon ",
   description:
-    'This is a simple coming soon template built with NextJS and TailwindCSS. It is a lightweight and responsive template that can be used for various projects that require a "coming soon" page.',
+    "Mitoz is a platform that allows you to share information about various topics such as technology, science, and more. We are currently in development and will be launching soon.",
 };
 
 export default function RootLayout({
