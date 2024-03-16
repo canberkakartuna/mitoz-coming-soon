@@ -1,6 +1,5 @@
 "use client";
 import data from "../../data/data";
-import { ThemeSwitcher } from "../../components/ThemeSwitcher";
 import React from "react";
 
 export default function Home() {
@@ -15,10 +14,20 @@ export default function Home() {
     );
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    return { days, hours, minutes, seconds };
+    return {
+      days: days < 10 ? `0${days}` : days,
+      hours: hours < 10 ? `0${hours}` : hours,
+      minutes: minutes < 10 ? `0${minutes}` : minutes,
+      seconds: seconds < 10 ? `0${seconds}` : seconds,
+    };
   };
 
-  const [timeLeft, setTimeLeft] = React.useState({
+  const [timeLeft, setTimeLeft] = React.useState<{
+    days: string | number;
+    hours: string | number;
+    minutes: string | number;
+    seconds: string | number;
+  }>({
     days: 0,
     hours: 0,
     minutes: 0,
@@ -32,10 +41,11 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  const isZero = (value: number | string) => value === 0 || value === "0";
+
   return (
     <>
       <main className="h-screen flex flex-col items-center justify-between p-5 lg:p-12">
-        {/* <ThemeSwitcher /> */}
         <div className="flex-1 relative flex flex-col  place-items-center ">
           <h2 className="text-center font-heading m-10 text-6xl sm:text-7xl lg:text-8xl leading-[5rem] sm:leading-[7rem] lg:leading-[7rem] font-black	 ">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
@@ -46,10 +56,10 @@ export default function Home() {
 
           <p
             className={
-              timeLeft.days === 0 &&
-              timeLeft.hours === 0 &&
-              timeLeft.minutes === 0 &&
-              timeLeft.seconds === 0
+              isZero(timeLeft.days) &&
+              isZero(timeLeft.hours) &&
+              isZero(timeLeft.minutes) &&
+              isZero(timeLeft.seconds)
                 ? "invisible"
                 : "visible"
             }
